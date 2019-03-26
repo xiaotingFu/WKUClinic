@@ -1,0 +1,46 @@
+    <button type="button" class="close" ng-click="cancel();">
+        <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+    </button>
+    <div class="modal-header">
+        <h3 class="modal-title">Leave Application</h3>
+    </div>
+    <div class="modal-body">
+        <form name="product_form" class="form-horizontal" role="form" novalidate>
+            <form-element label="ID" mod="diagnosisrich">
+                <input type="text" class="form-control" name="pid" placeholder="patient ID" ng-model="diagnosisrich.pid" />
+            </form-element>
+           
+            </form-element>
+             <form-element label="Patient Name" mod="diagnosisrich">
+                <input type="text" class="form-control" name="diagnosisrich.pname" placeholder="Patient Name" ng-model="diagnosisrich.pname" /> 
+            </form-element>
+            </form-element>
+             <form-element label="Diagnosis" mod="diagnosisrich">
+                <input type="text" class="form-control" name="name" placeholder="Diagnosis" ng-model="diagnosisrich.sname" /> 
+            </form-element>
+            <form-element label="Suggestion" mod="diagnosisrich">
+                <textarea type="text" class="form-control" name="name" placeholder="Doctor's Advice" ng-model="diagnosisrich.advice"> </textarea>
+            </form-element>
+            <form-element label="Doctor's Signature" mod="diagnosisrich">
+               <input type="text" class="form-control" name="name" placeholder="Doctor's Signature"  /> 
+            </form-element>
+
+
+            <div class="space"></div>
+            <div class="space-4"></div>
+            <div class="modal-footer">
+                <form-element label="">
+                    <div class="text-right">
+                        <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>cancel</a>
+                        <button ng-click="saveProduct(diagnosis,illness);"
+                                ng-disabled="product_form.$invalid || enableUpdate"
+                                class="btn btn-sm btn-primary"
+                                type="submit">
+                            <i class="ace-icon fa fa-check"></i>Generate
+                        </button>
+                    </div>
+                </form-element>
+            </div>
+        </form>
+    </div>
+

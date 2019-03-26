@@ -1,0 +1,58 @@
+    <button type="button" class="close" ng-click="cancel();">
+        <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+    </button>
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Prescription</h3>
+    </div>
+    <div class="modal-body">
+        <form name="product_form" class="form-horizontal" role="form" novalidate>
+        </form-element>
+       
+        <form-element label="Diagnosis ID" mod="prescription">
+            <textarea class="form-control" name="Content" placeholder="Diagnosis ID" ng-model="prescription.did"> 
+            </textarea>
+        </form-element>
+        
+            <form-element label="Prescription ID" mod="prescription">
+            <textarea class="form-control" name="Content" placeholder="prescription id(check prescription tab for the last value" ng-model="prescription.pscid"> </textarea>
+            </form-element>
+            
+            <form-element label="Medcine Name" name="medicineselect" label="medicineselect" mod="prescription">
+             
+              <select class="form-control" show-search="true" show-search="true " 
+                  ng-change = "changed(selectedId)"
+                  ng-model="selectedId">
+                    <option value="">------Please Select------</option> <!-- not selected / blank option -->
+                    <option 
+                            ng-repeat = "medicine in medicines" 
+                            ng-selected="selectedId == medicine.mid" 
+                            ng-value="medicine.mid"
+                            >
+                           {{medicine.name}} </option>
+                  </select>
+            </form-element>
+
+            <form-element label="Custom Usage" mod="prescription">
+            <textarea class="form-control" name="Content" placeholder="Custom Usage" ng-model="prescription.customusage"> </textarea>
+            </form-element>
+            <form-element label="Quantity" mod="prescription">
+            <textarea class="form-control" name="Content" placeholder="Quantity" ng-model="prescription.quantity"> </textarea>
+            </form-element>
+            <div class="space"></div>
+            <div class="space-4"></div>
+            <div class="modal-footer">
+                <form-element label="">
+                    <div class="text-right">
+                        <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>cancel</a>
+                        <button ng-click="saveProduct(prescription);"
+                                ng-disabled="product_form.$invalid || enableUpdate"
+                                class="btn btn-sm btn-primary"
+                                type="submit">
+                            <i class="ace-icon fa fa-check"></i>add
+                        </button>
+                    </div>
+                </form-element>
+            </div>
+        </form>
+    </div>
+

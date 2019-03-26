@@ -1,0 +1,64 @@
+    <button type="button" class="close" ng-click="cancel();">
+        <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+    </button>
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Diagnosis</h3>
+    </div>
+    <div class="modal-body">
+        <form name="product_form" class="form-horizontal" role="form" novalidate>
+            <form-element label="ID" mod="diagnosis">
+                <input type="text" class="form-control" name="pid" placeholder="Patient ID" ng-model="diagnosis.pid" />
+            </form-element>
+           
+
+            </form-element>
+             <form-element label="Temperature" mod="diagnosis">
+                <input type="text" class="form-control" name="name" placeholder="Temperature" ng-model="diagnosis.temperature" /> centigrade degree
+            </form-element>
+            <form-element label="Heart Rate" mod="diagnosis">
+                <input type="text" class="form-control" name="name" placeholder="Heart Rate" ng-model="diagnosis.heartrate" /> time/second
+            </form-element>
+
+            <form-element label="Disease Name" name="catagoryaselect" label="catagoryaselect" mod="illness" >
+             
+
+
+                  <select class="form-control" show-search="true" show-search="true " 
+                  ng-change = "changed(selectedId)"
+                  ng-model="selectedId">
+                    <option value="">------Please Select------</option> <!-- not selected / blank option -->
+                    <option 
+                            ng-repeat = "illness in illnesses" 
+                            ng-selected="selectedId == illness.sid" 
+                            ng-value="illness.sid"
+                            >
+                            {{illness.iname}} </option>
+                  </select>
+
+          
+            </form-element>
+    
+            <form-element label="Description" mod="diagnosis">
+            <textarea class="form-control" name="Content" placeholder="Description" ng-model="diagnosis.description"> </textarea>
+            </form-element>
+            <form-element label="Suggestion" mod="diagnosis">
+            <textarea class="form-control" name="Content" placeholder="Suggestion" ng-model="diagnosis.advice"> </textarea>
+            </form-element>
+            <div class="space"></div>
+            <div class="space-4"></div>
+            <div class="modal-footer">
+                <form-element label="">
+                    <div class="text-right">
+                        <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>cancel</a>
+                        <button ng-click="saveProduct(diagnosis,illness);"
+                                ng-disabled="product_form.$invalid || enableUpdate"
+                                class="btn btn-sm btn-primary"
+                                type="submit">
+                            <i class="ace-icon fa fa-check"></i>Add
+                        </button>
+                    </div>
+                </form-element>
+            </div>
+        </form>
+    </div>
+

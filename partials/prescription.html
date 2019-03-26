@@ -1,0 +1,53 @@
+ <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+         <a class="blog-nav-item" href="#">Home Page</a>
+         <a class="blog-nav-item" href="#/diagnosis">Enter Diagnosis</a>
+         <a class="blog-nav-item active" href="#/prescription">View Prescription</a>
+        </nav>
+      </div>
+    </div>
+
+
+<div class="table-responsive container-fluid">
+
+<h4 class="blog-post-title">View Prescription</h4>
+<hr/>
+<img ng-src="diagnosis_instruction.png" alt="Description" 
+    style = "
+    max-width: 100%;
+    max-height: 100%;"/>
+ <hr/>   
+<div class="table-responsive">
+<div class="panel panel-primary">
+  <div class="panel-heading">Prescription List
+      <div class="sw-search" >
+            <div class="nav-search" id="nav-search">
+                    Search for prescription: <span class="input-icon">
+                        <input placeholder="please enter the keyword ..." class="nav-search-input" ng-model="filterProduct" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
+                        <i class="search-icon fa fa-search nav-search-icon"></i>
+                    </span>
+            </div>
+        </div>
+    </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+    <tr ng-show="prescriptions.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
+    <!-- <tr ng-hide="dprescriptions.length>-1"><td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td></tr> -->
+    
+    <tr><th ng-repeat="c in columns">{{c.text}}</th></tr>
+
+    <tr ng-repeat="c in prescriptions | filter:filterProduct | orderBy:'-pscid'" id="{{c.pscid}}" >
+      <td>{{c.pscid}}</td>
+      <td>{{c.name}}</td>
+      <td>{{c.sid}}</td>
+      <td>{{c.customusage}}</td>
+      <td>{{c.quantity}}</td>
+      <td style="width:100px">
+        </td>
+    </tr>
+    </table>
+</div>
+</div>
+</div>
+</div>

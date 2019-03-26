@@ -1,0 +1,68 @@
+ <div class="blog-masthead">
+      <div class="container">
+        <nav class="blog-nav">
+         <a class="blog-nav-item" href="#">Home Page</a>
+         <a class="blog-nav-item active" href="#/diagnosis">Enter Diagnosis</a>
+         <a class="blog-nav-item" href="#/prescription">View Prescription</a>
+        </nav>
+      </div>
+    </div>
+
+
+<div class="table-responsive container-fluid">
+
+<h4 class="blog-post-title">Diagnosis</h4>
+<hr/> 
+<img ng-src="diagnosis_instruction.png" alt="Description" 
+    style = "
+    max-width: 100%;
+    max-height: 100%;"/>
+ <hr/>   
+<button type="button" class="btn btn-success btn-lg fa fa-plus" ng-click="open(diagnosis);">&nbsp;Enter Diagnosis</button>
+<hr/> 
+<div class="table-responsive">
+<div class="panel panel-primary">
+  <div class="panel-heading">Diagnosis History List
+      <div class="sw-search" >
+            <div class="nav-search" id="nav-search">
+                    Diagnosis Search: <span class="input-icon">
+                        <input placeholder="please enter the keyword ..." class="nav-search-input" ng-model="filterProduct" ng-change="resetLimit();"  autocomplete="off" type="text" style="width:300px;" focus>
+                        <i class="search-icon fa fa-search nav-search-icon"></i>
+                    </span>
+            </div>
+        </div>
+    </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+    <tr ng-show="diagnosises.length==0"><td style="vertical-align:middle;"><i class="fa fa-ban fa-3x"></i>&nbsp;No data found</td></tr>
+    <tr ng-hide="diagnosises.length>-1"><td style="vertical-align:middle;"><i class="fa fa-cog fa-3x fa-spin"></i>&nbsp;Loading</td></tr>
+    
+    <tr><th ng-repeat="c in columns">{{c.text}}</th></tr>
+
+    <tr ng-repeat="d in diagnosises | filter:filterProduct | orderBy:'-did'" id="{{d.did}}" >
+        <td>{{d.did}}</td>
+        <td>{{d.iname}}</td>
+        <td>{{d.name}}</td>
+       <td>{{d.time}}</td>
+       <td>{{d.description}}</td>
+       <td>{{d.advice}}</td>
+
+        <td style="width:100px">
+            <div class="btn-group">
+
+              <button type="button" class="btn btn-default" ng-click="openNew(d);"> Generate LA
+              </button>
+
+              <button type="button" class="btn btn-default" 
+              ng-click="openPsc(d.did);">
+                 Prescribe   
+              </button>
+
+            </div>
+        </td>
+    </tr>
+    </table>
+</div>
+</div>
+</div>
+              </div>

@@ -1,0 +1,80 @@
+    <button type="button" class="close" ng-click="cancel();">
+        <i class="fa fa-times-circle-o" style="margin:10px;color:blue;"></i>
+    </button>
+    <div class="modal-header">
+        <h3 class="modal-title">Edit Patient Info</h3>
+    </div>
+    <div class="modal-body">
+        <form name="product_form" class="form-horizontal" role="form" novalidate>
+            <form-element label="ID" mod="product">
+                <input type="text" class="form-control" name="pid" placeholder="PID" ng-model="product.pid" />
+            </form-element>
+             <form-element label="Name" mod="product">
+                <input type="text" class="form-control" name="name" placeholder="Name" ng-model="product.name" />
+
+            </form-element>
+
+             <form-element label="Gender" mod="product">
+
+           <label class="radio-inline">
+            <input value = "M" type="radio" name="optradio"  ng-model="product.gender">M
+            </label>
+            <label class="radio-inline">
+             <input  value = "F" type="radio" name="optradio" ng-model="product.gender">F
+                </label>
+            </form-element>
+           
+            <form-element label="Birthday" mod="product">
+            <input  name="textinput" type="text" placeholder="Please enter the birthday（E.g.：2000-01-01）" class="form-control input-md" ng-model="product.birthday">
+            </form-element>
+
+            <form-element label="Select Patient type" mod="product">
+            <div class="col-md-3">
+                <select  class="selectpicker"  data-style="btn-success" name="selectbasic" ng-model="product.identity">
+                  <option value="1">Student</option>
+                  <option value="2">Staff</option>
+                  <option value="3">Faculty</option>
+              </select>
+            </div>
+            </form-element>
+
+            <form-element label="Health Insurance" mod="product">
+            <div class="col-md-1">
+                <select class="selectpicker" name="selectbasic" ng-model="product.insurance">
+                  
+                  <option value="No">No</option>
+                  <option value="Yes">Yes</option>
+
+              </select>
+            </div>
+            </form-element>
+             <form-element label="Height" mod="product">
+                <input type="text" class="form-control" name="name" placeholder="Height" ng-model="product.height" /> CM
+            </form-element>
+            <form-element label="Weight" mod="product">
+                <input type="text" class="form-control" name="name" placeholder="Weight" ng-model="product.weight" /> KG
+            </form-element>
+            <form-element label="Past History" mod="product">
+            <textarea class="form-control" name="Content" placeholder="Past History" ng-model="product.pasthistory"> </textarea>
+            </form-element>
+            <form-element label="Allergic History" mod="product">
+            <textarea class="form-control" name="Content" placeholder="Allergic History" ng-model="product.allergichistory"> </textarea>
+            </form-element>
+            <div class="space"></div>
+            <div class="space-4"></div>
+            <div class="modal-footer">
+                <form-element label="">
+                    <div class="text-right">
+                        <a class="btn btn-sm" ng-click="cancel()"><i class="ace-icon fa fa-reply"></i>cancel</a>
+                        <button ng-click="saveProduct(product);"
+                                ng-disabled="product_form.$invalid || enableUpdate"
+                                class="btn btn-sm btn-primary"
+                                type="submit">
+                            <i class="ace-icon fa fa-check"></i>Add
+                        </button>
+                    </div>
+                </form-element>
+            </div>
+        </form>
+    </div>
+
